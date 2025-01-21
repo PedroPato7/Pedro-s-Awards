@@ -1,30 +1,3 @@
-<?php
-// Verifica se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $novaCategoria = trim($_POST['categoria'] ?? '');
-
-    if (!empty($novaCategoria)) {
-        // Aqui você pode salvar a nova categoria em um banco de dados ou arquivo
-        // Exemplo básico para adicionar em um arquivo JSON
-        $arquivo = 'categorias.json';
-
-        if (file_exists($arquivo)) {
-            $categorias = json_decode(file_get_contents($arquivo), true);
-        } else {
-            $categorias = [];
-        }
-
-        $categorias[] = $novaCategoria;
-        file_put_contents($arquivo, json_encode($categorias));
-
-        // Atualiza as categorias exibidas
-        echo "<script>alert('Categoria adicionada com sucesso! Atualizando categorias...'); window.location.href='index.php';</script>";
-        exit;
-    } else {
-        $erro = "Por favor, insira um nome para a categoria.";
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
