@@ -1,4 +1,3 @@
-<!-- header.php -->
 <header>
     <div class="logo">
         <a href="index.php">🐇 Pedro's Awards 🦆</a>

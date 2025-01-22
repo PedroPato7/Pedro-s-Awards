@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomidados do Pedro's Awards</title>
+    <title>Nominados do Pedro's Awards</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -20,7 +20,7 @@
         <section class="hero">
            <div class="votoNomies">
                 <h3>
-                    <a href="adicionar_jogo.php">Adicionar novo jogo</a>
+                    <a href="adicionar_jogo.php">Adicionar novo jogo</a> | <a href="adicionar_jogoCategoria.php">Adicionar Jogo à Categoria</a>
                 </h3>
            </div>
         </section>
@@ -40,7 +40,8 @@
                 ?>
             </div>
             <?php
-                }
+                } else
+                    echo "<br><p>Nenhum jogo foi encontrado.</p>";
             ?>
             <h2>Últimas Notícias</h2>
             <p>Esteja por dentro das novas nomeações, eventos e mais!</p>

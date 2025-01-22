@@ -19,7 +19,7 @@
                 <h3>Nome: <input type="text" name="nome" size="35"></h3>
                 <h3>Imagem: <input type="file" name="imagem"></h3>
                 <br>
-                <button type="submit">Cadastrar</button>
+                <button type="submit" name="acao" value="salvar">Cadastrar</button>
             </form>
         </section>
     </main>

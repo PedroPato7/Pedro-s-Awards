@@ -64,6 +64,23 @@
             }
         }
 
+        public static function procurarId($id){
+            try{
+                $conexao = Conexao::getInstance();
+
+                $sql = "SELECT * FROM jogo WHERE id = :id";
+
+                $comando = $conexao->prepare($sql);
+                $comando->bindValue(":id", $id);
+
+                $comando->execute();
+
+                return $comando->fetch();
+            } catch(PDOException $e){
+                echo "Erro: ".$e->getMessage();
+            }
+        }
+
         public function getId(){
             return $this->id;
         }
