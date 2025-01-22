@@ -1,3 +1,8 @@
+<?php
+    require_once "class/Jogo.class.php";
+
+    $jogos = Jogo::listar();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,11 +19,29 @@
     <main>
         <section class="hero">
            <div class="votoNomies">
-                
+                <h3>
+                    <a href="adicionar_jogo.php">Adicionar novo jogo</a>
+                </h3>
            </div>
         </section>
 
         <section class="content">
+            <?php
+                if(!empty($jogos)){
+            ?>
+            <div class="grid">
+                <?php
+                    foreach($jogos as $jogo){
+                        echo "<div class='card'>
+                            <img src='img/".$jogo["id"].".".$jogo["extensaoImagem"]."' height='280'>
+                            <h3>(".$jogo["id"].") ".$jogo["nome"]."</h3>
+                        </div>";
+                    }
+                ?>
+            </div>
+            <?php
+                }
+            ?>
             <h2>Últimas Notícias</h2>
             <p>Esteja por dentro das novas nomeações, eventos e mais!</p>
         </section>
