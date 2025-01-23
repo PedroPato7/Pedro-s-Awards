@@ -20,6 +20,6 @@ CREATE TABLE IF NOT EXISTS jogo_categoria(
     id_categoria INT NOT NULL,
     totalVotos INT DEFAULT 0,
     PRIMARY KEY (id_jogo, id_categoria),
-    FOREIGN KEY (id_jogo) REFERENCES jogo (id),
-    FOREIGN KEY (id_categoria) REFERENCES categoria (id)
+    FOREIGN KEY (id_jogo) REFERENCES jogo (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_categoria) REFERENCES categoria (id) ON DELETE CASCADE
 );
