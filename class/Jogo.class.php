@@ -21,14 +21,14 @@
                 $comando = $conexao->prepare($sql);
                 $comando->bindValue(":nome", $this->getNome());
 
-                $extImagem = pathinfo($this->imagem["name"], PATHINFO_EXTENSION);
+                $extImagem = pathinfo($this->imagem->name, PATHINFO_EXTENSION);
                 $comando->bindValue(":extImagem", $extImagem);
 
                 $comando->execute();
 
-                $this->inserirImagem($extImagem);
+                return $this->inserirImagem($extImagem);
             } catch(PDOException $e){
-                echo "Erro ao cadastrar jogo: ".$e->getMessage();
+                return "Erro ao cadastrar jogo: ".$e->getMessage();
             }
         }
 
@@ -38,13 +38,15 @@
 
                 $id = $conexao->lastInsertId();
 
-                $nomeTmp = $this->imagem["tmp_name"];
+                $nomeTmp = $this->imagem->tmp_name;
 
                 $destino = "../img/".$id.".".$extensao;
 
-                move_uploaded_file($nomeTmp, $destino);
+                // move_uploaded_file($nomeTmp, $destino);
+
+                return file_put_contents($destino, $this->getImagem());
             } catch(PDOException $e){
-                echo "Erro ao inserir imagem: ".$e->getMessage();
+                return "Erro ao inserir imagem: ".$e->getMessage();
             }
         }
 
@@ -60,7 +62,7 @@
 
                 return $comando->fetchAll();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 
@@ -77,7 +79,7 @@
 
                 return $comando->fetch();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 

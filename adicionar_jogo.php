@@ -15,7 +15,7 @@
         </section>
         
         <section class="content">
-            <form action="control/ctrl_jogo.php" method="post" enctype="multipart/form-data">
+            <form action="produtor.php" method="post" enctype="multipart/form-data">
                 <h3>Nome: <input type="text" name="nome" size="35"></h3>
                 <h3>Imagem: <input type="file" name="imagem"></h3>
                 <br>
