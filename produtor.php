@@ -27,8 +27,6 @@
 
         $canal->queue_declare("filaControle", false, false, false, false);
 
-        echo $json;
-
         $dados = new AMQPMessage($json);
         $canal->basic_publish($dados, "", "filaControle");
 
