@@ -38,13 +38,11 @@
 
                 $id = $conexao->lastInsertId();
 
-                $nomeTmp = $this->imagem->tmp_name;
+                $dadosImagem = file_get_contents($this->getImagem()->tmp_name);
 
                 $destino = "../img/".$id.".".$extensao;
 
-                // move_uploaded_file($nomeTmp, $destino);
-
-                return file_put_contents($destino, $this->getImagem());
+                return file_put_contents($destino, $dadosImagem);
             } catch(PDOException $e){
                 return "Erro ao inserir imagem: ".$e->getMessage();
             }

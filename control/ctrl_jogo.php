@@ -24,9 +24,7 @@
 
         $jogo = new Jogo($nome, $imagem);
 
-        var_dump($jogo->getImagem());
-
-        echo $jogo->inserir();
+        $jogo->inserir();
     };
 
     $canal->basic_consume("filaJogo", "", false, true, false, false, $callback);

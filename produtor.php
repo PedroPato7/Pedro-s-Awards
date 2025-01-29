@@ -22,5 +22,7 @@
     $canal->close();
     $conexao->close();
 
+    sleep(1);
+
     header("location:nominados.php");
 ?>
