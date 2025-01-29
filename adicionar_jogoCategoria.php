@@ -22,7 +22,7 @@
         </section>
 
         <section class="content">
-            <form action="control/ctrl_jogoCategoria.php" method="post">
+            <form action="produtor.php" method="post">
                 <h3>
                     Jogo: 
                     <select name="id_jogo">
@@ -44,7 +44,7 @@
                     </select>
                 </h3>
                 <br>
-                <button type="submit" name="acao" value="salvar">Adicionar</button>
+                <button type="submit" name="acao" value="salvarJogoCategoria">Adicionar</button>
             </form>
         </section>
     </main>

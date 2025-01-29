@@ -39,7 +39,7 @@
                             $jogo = Jogo::procurarId($jogoCategoria["id_jogo"]);
                     ?>
                     <div class='card'>
-                        <form action="control/ctrl_jogoCategoria.php" method="POST">
+                        <form action="produtor.php" method="POST">
                             <input type="hidden" name="id_jogo" value="<?php echo $jogo["id"]; ?>">
                             <input type="hidden" name="id_categoria" value="<?php echo $categoria["id"]; ?>">
                             <?php

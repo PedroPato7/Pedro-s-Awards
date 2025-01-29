@@ -1,6 +1,6 @@
 <?php
     define('USUARIO', 'root');  
-    define('SENHA', '');
+    define('SENHA', 'Sobaoeim123#');
     
     class Conexao{
 

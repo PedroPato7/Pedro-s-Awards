@@ -16,10 +16,10 @@
         
         <section class="content">
             <form action="produtor.php" method="post" enctype="multipart/form-data">
-                <h3>Nome: <input type="text" name="nome" size="35"></h3>
-                <h3>Imagem: <input type="file" name="imagem"></h3>
+                <h3>Nome: <input type="text" name="nome" size="35" required></h3>
+                <h3>Imagem: <input type="file" name="imagem" required></h3>
                 <br>
-                <button type="submit" name="acao" value="salvar">Cadastrar</button>
+                <button type="submit" name="acao" value="salvarJogo">Cadastrar</button>
             </form>
         </section>
     </main>

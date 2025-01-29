@@ -15,11 +15,14 @@
     <?php include 'header.php'; ?>
 
     <main>
-        <div class="add-category">
-            <button onclick="window.location.href='adicionar_categoria.php'">Adicionar Nova Categoria</button>
-        </div>
+        <section class="hero">
+            <h1>Categorias</h1>
+            <br>
+            <h3>
+                <a href="adicionar_categoria.php">Adicionar nova Categoria</a>
+            </h3>
+        </section>
         <section class="categories">
-            <h2>Categorias</h2>
             <?php
                 if(!empty($categorias)){
             ?>

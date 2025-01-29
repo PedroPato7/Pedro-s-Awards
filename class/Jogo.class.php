@@ -105,5 +105,9 @@
             $this->imagem = $imagem;
         }
 
+        public function __toString(){
+            return $this;
+        }
+
     }
 ?>

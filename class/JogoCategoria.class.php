@@ -23,7 +23,7 @@
 
                 $comando->execute();
             } catch(PDOException $e){
-                echo "Erro ao adicionar jogo à categoria: ".$e->getMessage();
+                return "Erro ao adicionar jogo à categoria: ".$e->getMessage();
             }
         }
 
@@ -40,7 +40,7 @@
 
                 return $comando->fetchAll();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 
@@ -57,7 +57,7 @@
 
                 $comando->execute();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 

@@ -4,25 +4,54 @@
     use PhpAmqpLib\Connection\AMQPStreamConnection;
     use PhpAmqpLib\Message\AMQPMessage;
 
-    $nome = isset($_POST["nome"]) ? $_POST["nome"] : "";
-    $imagem = isset($_FILES["imagem"]) ? $_FILES["imagem"] : NULL;
+    if(isset($_POST)){
+        $chaves = array_keys($_POST);
 
-    $imagem = json_encode($imagem);
+        for($i = 0; $i < count($_POST); $i++){
+            if($i == 0)
+                $json = '{';
 
-    $json = '{"nome":"'.$nome.'", "imagem": '.$imagem.'}';
+            $json .= '"'.$chaves[$i].'":"'.$_POST[$chaves[$i]].'"';
 
-    $conexao = new AMQPStreamConnection("localhost", 5672, "guest", "guest");
-    $canal = $conexao->channel();
+            if($i < count($_POST) - 1)
+                $json .= ", ";
+        }
 
-    $canal->queue_declare("filaJogo", false, false, false, false);
+        if(isset($_FILES["imagem"]))
+            $json .= ', "imagem":'.json_encode($_FILES["imagem"]);
 
-    $dadosJogo = new AMQPMessage($json);
-    $canal->basic_publish($dadosJogo, "", "filaJogo");
+        $json .= '}';
 
-    $canal->close();
-    $conexao->close();
+        $conexao = new AMQPStreamConnection("localhost", 5672, "guest", "guest");
+        $canal = $conexao->channel();
+
+        $canal->queue_declare("filaControle", false, false, false, false);
+
+        echo $json;
+
+        $dados = new AMQPMessage($json);
+        $canal->basic_publish($dados, "", "filaControle");
+
+        $canal->close();
+        $conexao->close();
+    }
 
     sleep(1);
 
-    header("location:nominados.php");
+    $acao = $_POST["acao"];
+
+    if($acao == "salvarJogo")
+    {
+        header("location:nominados.php");
+    }
+    else if($acao == "salvarCategoria")
+    {
+        header("location:categorias.php");
+    }
+    else if($acao == "salvarJogoCategoria")
+    {
+        header("location:nominados.php");
+    }
+    else
+        header("location:votacao.php?categoria=".$_POST["id_categoria"]."&voto=true");
 ?>

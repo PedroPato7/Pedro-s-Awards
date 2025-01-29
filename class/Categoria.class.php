@@ -20,7 +20,7 @@
 
                 $comando->execute();
             } catch(PDOException $e){
-                echo "Erro ao inserir categoria: ".$e->getMessage();
+                return "Erro ao inserir categoria: ".$e->getMessage();
             }
         }
 
@@ -36,7 +36,7 @@
 
                 return $comando->fetchAll();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 
@@ -53,7 +53,7 @@
 
                 return $comando->fetch();
             } catch(PDOException $e){
-                echo "Erro: ".$e->getMessage();
+                return "Erro: ".$e->getMessage();
             }
         }
 

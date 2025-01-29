@@ -8,15 +8,19 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
-    <div class="form-container">
-        <h2>Adicionar Nova Categoria</h2>
-        <?php if (!empty($erro)): ?>
-            <p class="error"><?php echo htmlspecialchars($erro); ?></p>
-        <?php endif; ?>
-        <form method="POST" action="control/ctrl_categoria.php">
-            <input type="text" name="nome" placeholder="Nome da Categoria" required>
-            <button type="submit">Adicionar</button>
-        </form>
-    </div>
+
+    <main>
+        <section class="hero">
+            <h1>Cadastro de Categoria</h1>
+        </section>
+        
+        <section class="content">
+            <form method="POST" action="produtor.php">
+                <h3>Nome: <input type="text" name="nome" size="35" required></h3>
+                <br>
+                <button type="submit" name="acao" value="salvarCategoria">Cadastrar</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
